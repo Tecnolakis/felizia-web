@@ -3,137 +3,594 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Felizia · Sitio en construcción</title>
-  <meta name="description" content="Felizia — Llevamos la IA al corazón de tu negocio. Sitio en construcción.">
-  <meta name="robots" content="noindex">
+  <title>Felizia · Inteligencia artificial para PyMEs</title>
+  <meta name="description" content="Felizia lleva la inteligencia artificial al corazón de tu negocio: consultoría, automatización de procesos, agentes IA y capacitación para PyMEs. Una división de Grupo Tecnolakis.">
+  <link rel="canonical" href="https://www.felizia.com.ar/">
+  <meta property="og:title" content="Felizia · Inteligencia artificial para PyMEs">
+  <meta property="og:description" content="Llevamos la IA al corazón de tu negocio. Soluciones simples, seguras y con resultados medibles.">
+  <meta property="og:url" content="https://www.felizia.com.ar/">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 140'%3E%3Cpath d='M22 40 A78 78 0 0 0 172 52' fill='none' stroke='%231B3A6F' stroke-width='22' stroke-linecap='round'/%3E%3Ccircle cx='176' cy='36' r='22' fill='%23FF7A50'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
       --navy: #1B3A6F;
+      --navy-dark: #122A52;
       --orange: #FF7A50;
+      --orange-dark: #E8603A;
       --bg: #FBFBFA;
+      --soft: #F2F5FA;
       --muted: #5B6B85;
+      --line: #E3E8F0;
+      --radius: 18px;
+      --max: 1120px;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body { height: 100%; }
+    html { scroll-behavior: smooth; }
     body {
       background: var(--bg);
       color: var(--navy);
       font-family: "Nunito", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 32px 16px;
-      text-align: center;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
     }
-    main { max-width: 560px; width: 100%; }
-    .logo {
-      width: min(220px, 55vw);
-      height: auto;
-      display: block;
-      margin: 0 auto 28px;
-    }
-    .logo .dot { animation: bob 2.8s ease-in-out infinite; transform-origin: center; }
-    @keyframes bob {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-6px); }
-    }
-    .brand {
-      font-size: clamp(2.2rem, 7vw, 3.2rem);
+    a { color: inherit; }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+    section { padding: 88px 0; scroll-margin-top: 72px; }
+    h2 {
+      font-size: clamp(1.7rem, 4.5vw, 2.4rem);
       font-weight: 800;
       letter-spacing: -0.02em;
+      line-height: 1.2;
     }
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin: 18px 0 14px;
-      padding: 8px 16px;
-      border-radius: 999px;
-      background: rgba(255, 122, 80, 0.12);
-      color: #C2482A;
-      font-weight: 800;
-      font-size: 0.85rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-    .badge::before {
-      content: "";
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: var(--orange);
-    }
-    p.highlight {
-      color: var(--navy);
-      font-size: clamp(1.25rem, 4.6vw, 1.6rem);
-      font-weight: 800;
-      line-height: 1.35;
-      letter-spacing: -0.01em;
-    }
-    p.sub {
-      margin-top: 14px;
-      color: var(--orange);
-      font-size: clamp(1rem, 3.6vw, 1.15rem);
-      font-weight: 600;
-    }
-    .url {
+    .eyebrow {
       display: inline-block;
-      margin-top: 32px;
-      color: var(--navy);
-      font-weight: 600;
+      color: var(--orange-dark);
+      font-weight: 800;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .section-head { max-width: 640px; margin-bottom: 48px; }
+    .section-head p { color: var(--muted); font-size: 1.1rem; margin-top: 12px; }
+
+    /* Botones */
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 14px 24px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 1rem;
       text-decoration: none;
-      border-bottom: 2px solid var(--orange);
-      padding-bottom: 2px;
+      transition: transform .15s ease, background .15s ease, box-shadow .15s ease;
     }
-    .group {
-      position: fixed;
-      right: 24px;
-      bottom: 20px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: var(--muted);
-      font-size: 0.85rem;
-      text-decoration: none;
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: var(--orange); color: #fff; box-shadow: 0 8px 20px rgba(255,122,80,.3); }
+    .btn-primary:hover { background: var(--orange-dark); }
+    .btn-ghost { color: var(--navy); border: 2px solid var(--line); background: #fff; }
+    .btn-ghost:hover { border-color: var(--navy); }
+    .btn svg { width: 20px; height: 20px; flex: none; }
+
+    /* Header */
+    header {
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(251,251,250,.88);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid transparent;
+      transition: border-color .2s;
     }
-    .group img {
-      width: 56px;
-      height: 56px;
-      mix-blend-mode: multiply;
+    header.scrolled { border-bottom-color: var(--line); }
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 800; font-size: 1.4rem; letter-spacing: -0.02em; }
+    .brand svg { width: 44px; height: auto; }
+    .menu { display: flex; align-items: center; gap: 28px; list-style: none; }
+    .menu a { text-decoration: none; font-weight: 700; color: var(--muted); }
+    .menu a:hover { color: var(--navy); }
+    .menu .btn { padding: 10px 18px; color: #fff; }
+    .menu-toggle { display: none; background: none; border: 0; color: var(--navy); cursor: pointer; padding: 8px; }
+    .menu-toggle svg { width: 28px; height: 28px; }
+
+    /* Hero */
+    .hero { padding: 72px 0 96px; overflow: hidden; }
+    .hero-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 48px; align-items: center; }
+    .hero h1 {
+      font-size: clamp(2.3rem, 6vw, 3.8rem);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
     }
-    .group span { text-align: left; line-height: 1.3; }
+    .hero h1 em { font-style: normal; color: var(--orange); }
+    .hero p.lead { font-size: clamp(1.05rem, 2.6vw, 1.25rem); color: var(--muted); margin: 22px 0 32px; max-width: 540px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; }
+    .hero-note { margin-top: 26px; color: var(--muted); font-size: .95rem; display: flex; align-items: center; gap: 10px; }
+    .hero-note strong { color: var(--navy); }
+    .hero-art { position: relative; aspect-ratio: 1 / 1; max-width: 460px; justify-self: center; width: 100%; }
+    .hero-art .blob {
+      position: absolute; inset: 6%;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #fff 0%, var(--soft) 55%, #E6ECF6 100%);
+    }
+    .hero-art svg.smile { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .hero-art .dot { animation: bob 3s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+    @keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+    .chip {
+      position: absolute;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 10px 14px;
+      font-weight: 700;
+      font-size: .9rem;
+      box-shadow: 0 10px 30px rgba(27,58,111,.08);
+      display: flex; align-items: center; gap: 8px;
+      white-space: nowrap;
+    }
+    .chip i { width: 10px; height: 10px; border-radius: 50%; background: var(--orange); display: inline-block; }
+    .chip.c1 { top: 10%; left: -4%; }
+    .chip.c2 { top: 46%; right: -6%; }
+    .chip.c3 { bottom: 8%; left: 6%; }
+
+    /* Servicios */
+    .services { background: #fff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .card {
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s;
+    }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(27,58,111,.08); border-color: #D3DCEA; }
+    .icon {
+      width: 52px; height: 52px;
+      border-radius: 14px;
+      display: grid; place-items: center;
+      background: rgba(255,122,80,.12);
+      color: var(--orange-dark);
+      margin-bottom: 18px;
+    }
+    .icon svg { width: 26px; height: 26px; }
+    .card h3 { font-size: 1.2rem; font-weight: 800; margin-bottom: 8px; line-height: 1.3; }
+    .card p { color: var(--muted); }
+    .card ul { margin-top: 14px; padding-left: 0; list-style: none; color: var(--muted); font-size: .95rem; }
+    .card li { padding-left: 18px; position: relative; margin-top: 6px; }
+    .card li::before { content: ""; position: absolute; left: 0; top: .6em; width: 7px; height: 7px; border-radius: 50%; background: var(--orange); }
+
+    /* Proceso */
+    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; counter-reset: step; position: relative; }
+    .step { position: relative; padding-top: 64px; }
+    .step::before {
+      counter-increment: step;
+      content: counter(step);
+      position: absolute; top: 0; left: 0;
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      display: grid; place-items: center;
+      background: var(--navy); color: #fff;
+      font-weight: 800; font-size: 1.2rem;
+    }
+    .step::after {
+      content: ""; position: absolute; top: 24px; left: 60px; right: -12px;
+      height: 2px;
+      background: repeating-linear-gradient(90deg, var(--line) 0 8px, transparent 8px 14px);
+    }
+    .step:last-child::after { display: none; }
+    .step h3 { font-size: 1.15rem; font-weight: 800; margin-bottom: 6px; }
+    .step p { color: var(--muted); }
+    .step .time { display: inline-block; margin-top: 10px; font-size: .85rem; font-weight: 700; color: var(--orange-dark); }
+
+    /* Por qué */
+    .why { background: var(--navy); color: #fff; }
+    .why .eyebrow { color: var(--orange); }
+    .why .section-head p { color: #C3CEE2; }
+    .why-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .why-item {
+      display: flex; gap: 18px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius);
+      padding: 26px;
+    }
+    .why-item .icon { background: rgba(255,122,80,.18); color: var(--orange); flex: none; margin: 0; }
+    .why-item h3 { font-size: 1.15rem; font-weight: 800; margin-bottom: 6px; }
+    .why-item p { color: #C3CEE2; }
+
+    /* Herramientas */
+    .tool-list {
+      list-style: none;
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+    }
+    .tool-list li {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 18px 20px;
+      display: flex; flex-direction: column;
+    }
+    .tool-list b { font-weight: 800; font-size: 1.05rem; }
+    .tool-list span { color: var(--muted); font-size: .9rem; }
+
+    /* Preguntas frecuentes */
+    .faq { background: #fff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .faq-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 48px; align-items: start; }
+    .faq .section-head { margin-bottom: 0; position: sticky; top: 100px; }
+    .faq-list details {
+      border-bottom: 1px solid var(--line);
+      padding: 20px 0;
+    }
+    .faq-list details:first-child { border-top: 1px solid var(--line); }
+    .faq-list summary {
+      list-style: none;
+      cursor: pointer;
+      font-weight: 800;
+      font-size: 1.08rem;
+      display: flex; justify-content: space-between; align-items: center; gap: 16px;
+    }
+    .faq-list summary::-webkit-details-marker { display: none; }
+    .faq-list summary::after {
+      content: "+";
+      flex: none;
+      width: 30px; height: 30px; border-radius: 50%;
+      display: grid; place-items: center;
+      background: rgba(255,122,80,.12); color: var(--orange-dark);
+      font-size: 1.3rem; font-weight: 700;
+      transition: transform .2s;
+    }
+    .faq-list details[open] summary::after { transform: rotate(45deg); }
+    .faq-list details p { color: var(--muted); margin-top: 10px; max-width: 620px; }
+
+    /* CTA */
+    .cta { text-align: center; }
+    .cta-box {
+      background: linear-gradient(135deg, #FFF3EE 0%, #F2F5FA 100%);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 64px 24px;
+    }
+    .cta h2 { max-width: 640px; margin: 0 auto; }
+    .cta p { color: var(--muted); font-size: 1.1rem; margin: 14px auto 30px; max-width: 520px; }
+
+    /* Footer */
+    footer { border-top: 1px solid var(--line); padding: 36px 0; }
+    .foot { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+    .foot small { color: var(--muted); }
+    .group { display: flex; align-items: center; gap: 10px; color: var(--muted); font-size: .9rem; text-decoration: none; }
+    .group img { width: 52px; height: 52px; mix-blend-mode: multiply; }
     .group strong { color: var(--navy); font-weight: 800; }
-    @media (max-width: 600px), (max-height: 560px) {
-      body { flex-direction: column; }
-      .group {
-        position: static;
-        margin-top: 48px;
-        justify-content: center;
+
+    /* WhatsApp flotante */
+    .wa-float {
+      position: fixed; right: 20px; bottom: 20px; z-index: 30;
+      width: 60px; height: 60px; border-radius: 50%;
+      background: #25D366; color: #fff;
+      display: grid; place-items: center;
+      box-shadow: 0 10px 24px rgba(37,211,102,.4);
+      transition: transform .15s;
+    }
+    .wa-float:hover { transform: scale(1.06); }
+    .wa-float svg { width: 32px; height: 32px; }
+
+    /* Animación al hacer scroll */
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+
+    /* Responsive */
+    @media (max-width: 960px) {
+      .grid-4 { grid-template-columns: repeat(2, 1fr); }
+      .steps { grid-template-columns: repeat(2, 1fr); row-gap: 40px; }
+      .tool-list { grid-template-columns: repeat(2, 1fr); }
+      .faq-grid { grid-template-columns: 1fr; gap: 32px; }
+      .faq .section-head { position: static; }
+      .step::after { display: none; }
+    }
+    @media (max-width: 760px) {
+      section { padding: 64px 0; }
+      .hero { padding: 40px 0 64px; }
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-art { max-width: 320px; order: -1; }
+      .chip { font-size: .8rem; padding: 8px 10px; }
+      .chip.c1 { left: -2%; } .chip.c2 { right: -2%; }
+      .why-grid { grid-template-columns: 1fr; }
+      .menu-toggle { display: block; }
+      .menu {
+        display: none;
+        position: absolute; top: 72px; left: 0; right: 0;
+        flex-direction: column; align-items: stretch; gap: 0;
+        background: var(--bg);
+        border-bottom: 1px solid var(--line);
+        padding: 8px 20px 20px;
       }
+      .menu.open { display: flex; }
+      .menu li a:not(.btn) { display: block; padding: 14px 0; border-bottom: 1px solid var(--line); }
+      .menu .btn { margin-top: 16px; justify-content: center; }
+    }
+    @media (max-width: 520px) {
+      .grid-4, .steps { grid-template-columns: 1fr; }
+      .hero-actions .btn { width: 100%; justify-content: center; }
+      .foot { flex-direction: column; text-align: center; }
     }
     @media (prefers-reduced-motion: reduce) {
-      .logo .dot { animation: none; }
+      html { scroll-behavior: auto; }
+      .hero-art .dot { animation: none; }
+      .reveal { opacity: 1; transform: none; transition: none; }
     }
   </style>
 </head>
 <body>
+
+  <header id="top">
+    <div class="wrap nav">
+      <a class="brand" href="#top" aria-label="Felizia, ir al inicio">
+        <svg viewBox="0 0 200 140" aria-hidden="true"><path d="M22 40 A78 78 0 0 0 172 52" fill="none" stroke="#1B3A6F" stroke-width="22" stroke-linecap="round"/><circle cx="176" cy="36" r="22" fill="#FF7A50"/></svg>
+        Felizia
+      </a>
+      <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <ul class="menu" id="menu">
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#como-trabajamos">Cómo trabajamos</a></li>
+        <li><a href="#por-que">Por qué Felizia</a></li>
+        <li><a href="#preguntas">Preguntas</a></li>
+        <li><a class="btn btn-primary wa-link" href="#">Hablemos</a></li>
+      </ul>
+    </div>
+  </header>
+
   <main>
-    <svg class="logo" viewBox="0 0 200 140" role="img" aria-label="Logo de Felizia">
-      <path d="M22 40 A78 78 0 0 0 172 52" fill="none" stroke="#1B3A6F" stroke-width="22" stroke-linecap="round"/>
-      <circle class="dot" cx="176" cy="36" r="22" fill="#FF7A50"/>
-    </svg>
-    <h1 class="brand">Felizia</h1>
-    <div class="badge">Sitio en construcción</div>
-    <p class="highlight">Llevamos la IA al corazón de tu negocio.<br>Muy pronto vas a conocer cómo.</p>
-    <p class="sub">¡Cosas buenas están por venir!</p>
-    <a class="url" href="https://www.felizia.com.ar">www.felizia.com.ar</a>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="eyebrow">Inteligencia artificial para PyMEs</span>
+          <h1>Llevamos la IA al <em>corazón</em> de tu negocio.</h1>
+          <p class="lead">Te ayudamos a ahorrar tiempo, reducir tareas repetitivas y atender mejor a tus clientes con soluciones de IA simples, seguras y con resultados que se pueden medir.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary wa-link" href="#">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.4 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 2 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.1.1.6-.1 1.3Z"/></svg>
+              Escribinos por WhatsApp
+            </a>
+            <a class="btn btn-ghost" href="#servicios">Ver servicios</a>
+          </div>
+          <p class="hero-note">Una división de <strong>Grupo Tecnolakis</strong>.</p>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="blob"></div>
+          <svg class="smile" viewBox="0 0 200 200">
+            <path d="M48 82 A54 54 0 0 0 150 92" fill="none" stroke="#1B3A6F" stroke-width="16" stroke-linecap="round"/>
+            <circle class="dot" cx="153" cy="74" r="16" fill="#FF7A50"/>
+          </svg>
+          <span class="chip c1"><i></i> Menos tareas manuales</span>
+          <span class="chip c2"><i></i> Atención 24/7</span>
+          <span class="chip c3"><i></i> Datos seguros</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section class="services" id="servicios">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Servicios</span>
+          <h2>Todo lo que tu empresa necesita para empezar a usar IA</h2>
+          <p>Desde entender dónde te conviene aplicarla hasta dejarla funcionando y a tu equipo usándola todos los días.</p>
+        </div>
+        <div class="grid-4">
+          <article class="card reveal">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M8 11h6M11 8v6"/></svg></div>
+            <h3>Consultoría y diagnóstico</h3>
+            <p>Analizamos tus procesos y detectamos dónde la IA te ahorra más tiempo y dinero.</p>
+            <ul><li>Relevamiento de procesos</li><li>Oportunidades priorizadas</li><li>Plan de acción concreto</li></ul>
+          </article>
+          <article class="card reveal">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0 1 14-5.3M20 12a8 8 0 0 1-14 5.3"/><path d="M18 3v4h-4M6 21v-4h4"/></svg></div>
+            <h3>Automatización de procesos</h3>
+            <p>Hacemos que las tareas repetitivas se resuelvan solas y que tus sistemas hablen entre sí.</p>
+            <ul><li>Carga de datos y facturas</li><li>Reportes automáticos</li><li>Integración de sistemas</li></ul>
+          </article>
+          <article class="card reveal">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12Z"/><path d="M9 11h.01M12 11h.01M15 11h.01"/></svg></div>
+            <h3>Agentes y asistentes IA</h3>
+            <p>Asistentes que atienden a tus clientes y ayudan a tu equipo a encontrar información al instante.</p>
+            <ul><li>Chatbots para web y WhatsApp</li><li>Asistentes internos</li><li>Consulta de documentos</li></ul>
+          </article>
+          <article class="card reveal">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9l10-5 10 5-10 5L2 9Z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/></svg></div>
+            <h3>Capacitación en IA</h3>
+            <p>Talleres prácticos para que tu equipo use la IA con confianza en su trabajo diario.</p>
+            <ul><li>Herramientas como Claude o ChatGPT</li><li>Casos de tu propia empresa</li><li>Buenas prácticas y seguridad</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CÓMO TRABAJAMOS -->
+    <section id="como-trabajamos">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Cómo trabajamos</span>
+          <h2>Un camino simple, paso a paso</h2>
+          <p>Empezamos chico, medimos resultados y crecemos juntos. Sin proyectos eternos ni promesas difíciles de cumplir.</p>
+        </div>
+        <div class="steps">
+          <div class="step reveal">
+            <h3>Conversamos</h3>
+            <p>Nos contás cómo funciona tu empresa y qué te gustaría mejorar.</p>
+            <span class="time">Primera reunión sin cargo</span>
+          </div>
+          <div class="step reveal">
+            <h3>Diagnosticamos</h3>
+            <p>Detectamos las oportunidades con más impacto y te proponemos un plan claro.</p>
+            <span class="time">Objetivos medibles</span>
+          </div>
+          <div class="step reveal">
+            <h3>Implementamos</h3>
+            <p>Desarrollamos la solución, la integramos a tus herramientas y la probamos con tu equipo.</p>
+            <span class="time">Resultados en semanas</span>
+          </div>
+          <div class="step reveal">
+            <h3>Acompañamos</h3>
+            <p>Capacitamos, medimos el impacto y ajustamos para que siga dando resultados.</p>
+            <span class="time">Mejora continua</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- POR QUÉ FELIZIA -->
+    <section class="why" id="por-que">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Por qué Felizia</span>
+          <h2>IA con los pies en la tierra</h2>
+          <p>Somos una startup nueva con la experiencia de un grupo que trabaja en tecnología hace años.</p>
+        </div>
+        <div class="why-grid">
+          <div class="why-item reveal">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg></div>
+            <div><h3>Respaldo de Grupo Tecnolakis</h3><p>Detrás de Felizia hay un equipo con experiencia implementando tecnología en empresas.</p></div>
+          </div>
+          <div class="why-item reveal">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 14 4-4 3 3 5-6"/></svg></div>
+            <div><h3>Resultados medibles</h3><p>Definimos objetivos concretos desde el inicio: horas ahorradas, costos reducidos, clientes mejor atendidos.</p></div>
+          </div>
+          <div class="why-item reveal">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg></div>
+            <div><h3>Cercanía y lenguaje simple</h3><p>Te acompañamos de forma personalizada y te explicamos todo sin tecnicismos.</p></div>
+          </div>
+          <div class="why-item reveal">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg></div>
+            <div><h3>Tus datos, seguros</h3><p>Cuidamos la información de tu empresa, definimos permisos claros y las decisiones importantes siempre pasan por una persona.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HERRAMIENTAS -->
+    <section class="tools" id="herramientas">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Herramientas</span>
+          <h2>Trabajamos con la tecnología que ya conocés</h2>
+          <p>Elegimos la herramienta adecuada para cada caso y la integramos con los sistemas que tu empresa ya usa.</p>
+        </div>
+        <ul class="tool-list reveal">
+          <li><b>Claude</b><span>Anthropic</span></li>
+          <li><b>ChatGPT</b><span>OpenAI</span></li>
+          <li><b>Gemini</b><span>Google</span></li>
+          <li><b>Copilot</b><span>Microsoft 365</span></li>
+          <li><b>WhatsApp Business</b><span>Meta</span></li>
+          <li><b>Google Workspace</b><span>Gmail, Drive, Sheets</span></li>
+          <li><b>n8n</b><span>Automatizaciones</span></li>
+          <li><b>Make</b><span>Integraciones</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- PREGUNTAS FRECUENTES -->
+    <section class="faq" id="preguntas">
+      <div class="wrap faq-grid">
+        <div class="section-head reveal">
+          <span class="eyebrow">Preguntas frecuentes</span>
+          <h2>Lo que nos suelen preguntar</h2>
+          <p>¿Tenés otra duda? Escribinos por WhatsApp y te respondemos.</p>
+        </div>
+        <div class="faq-list">
+          <details class="reveal">
+            <summary>¿Necesito saber de tecnología para trabajar con ustedes?</summary>
+            <p>No. Nosotros nos ocupamos de la parte técnica y te explicamos todo en lenguaje simple. Solo necesitamos que nos cuentes cómo funciona tu empresa.</p>
+          </details>
+          <details class="reveal">
+            <summary>Mi empresa es chica, ¿la IA me sirve?</summary>
+            <p>Sí. Justamente en las PyMEs es donde más se nota: automatizar unas pocas tareas repetitivas libera horas de trabajo cada semana para dedicarlas a lo importante.</p>
+          </details>
+          <details class="reveal">
+            <summary>¿Cuánto tiempo lleva ver resultados?</summary>
+            <p>Arrancamos por proyectos acotados, con objetivos claros, para que puedas ver resultados en semanas y no en meses. Después crecemos a partir de lo que funciona.</p>
+          </details>
+          <details class="reveal">
+            <summary>¿Qué pasa con los datos de mi empresa?</summary>
+            <p>Cuidamos tu información en todo momento: definimos quién accede a qué, usamos herramientas con buenas prácticas de seguridad y las decisiones importantes siempre pasan por una persona de tu equipo.</p>
+          </details>
+          <details class="reveal">
+            <summary>¿Cuánto cuesta?</summary>
+            <p>Depende de lo que necesites. La primera reunión es sin cargo: ahí conocemos tu empresa y después te enviamos una propuesta con alcance y costo claros, sin sorpresas.</p>
+          </details>
+          <details class="reveal">
+            <summary>¿Tengo que cambiar los sistemas que ya uso?</summary>
+            <p>No necesariamente. Siempre que se puede, integramos la IA con las herramientas que ya tenés, como tu sistema de gestión, planillas, mail o WhatsApp.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+      <div class="wrap">
+        <div class="cta-box reveal">
+          <span class="eyebrow">¿Hablamos?</span>
+          <h2>Contanos qué te gustaría mejorar en tu empresa</h2>
+          <p>Te respondemos por WhatsApp y coordinamos una primera charla sin cargo ni compromiso.</p>
+          <a class="btn btn-primary wa-link" href="#">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.4 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 2 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.1.1.6-.1 1.3Z"/></svg>
+            Escribinos por WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
   </main>
-  <a class="group" href="https://www.tecnolakis.com.ar" target="_blank" rel="noopener">
-    <img src="tecnolakis.jpg" alt="Logo de Tecnolakis" width="56" height="56">
-    <span>Una división de<br><strong>Grupo Tecnolakis</strong></span>
+
+  <footer>
+    <div class="wrap foot">
+      <small>© <span id="year">2026</span> Felizia · www.felizia.com.ar</small>
+      <a class="group" href="https://www.tecnolakis.com.ar" target="_blank" rel="noopener">
+        <img src="tecnolakis.jpg" alt="Logo de Tecnolakis" width="52" height="52">
+        <span>Una división de<br><strong>Grupo Tecnolakis</strong></span>
+      </a>
+    </div>
+  </footer>
+
+  <a class="wa-float wa-link" href="#" aria-label="Escribinos por WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.4 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 2 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.1.1.6-.1 1.3Z"/></svg>
   </a>
+
+  <script>
+    // Número de WhatsApp: solo dígitos (54 9 + área + número)
+    const WHATSAPP = "5493468509019";
+    const MENSAJE = "Hola Felizia, me gustaría saber cómo la IA puede ayudar a mi empresa.";
+    const waUrl = "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(MENSAJE);
+    document.querySelectorAll(".wa-link").forEach(a => {
+      a.href = waUrl; a.target = "_blank"; a.rel = "noopener";
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Menú móvil
+    const toggle = document.querySelector(".menu-toggle");
+    const menu = document.getElementById("menu");
+    toggle.addEventListener("click", () => {
+      const open = menu.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", open);
+    });
+    menu.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
+      menu.classList.remove("open"); toggle.setAttribute("aria-expanded", "false");
+    }));
+
+    // Borde del header al hacer scroll
+    const header = document.querySelector("header");
+    addEventListener("scroll", () => header.classList.toggle("scrolled", scrollY > 8), { passive: true });
+
+    // Aparición suave de secciones
+    if ("IntersectionObserver" in window) {
+      const io = new IntersectionObserver(entries => entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+      }), { threshold: 0.12 });
+      document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+    } else {
+      document.querySelectorAll(".reveal").forEach(el => el.classList.add("in"));
+    }
+  </script>
 </body>
 </html>

@@ -88,6 +88,32 @@
       border-bottom: 2px solid var(--orange);
       padding-bottom: 2px;
     }
+    .group {
+      position: fixed;
+      right: 24px;
+      bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 0.85rem;
+      text-decoration: none;
+    }
+    .group img {
+      width: 56px;
+      height: 56px;
+      mix-blend-mode: multiply;
+    }
+    .group span { text-align: left; line-height: 1.3; }
+    .group strong { color: var(--navy); font-weight: 800; }
+    @media (max-width: 600px), (max-height: 560px) {
+      body { flex-direction: column; }
+      .group {
+        position: static;
+        margin-top: 48px;
+        justify-content: center;
+      }
+    }
     @media (prefers-reduced-motion: reduce) {
       .logo .dot { animation: none; }
     }
@@ -105,5 +131,9 @@
     <p class="sub">¡Cosas buenas están por venir!</p>
     <a class="url" href="https://www.felizia.com.ar">www.felizia.com.ar</a>
   </main>
+  <a class="group" href="https://www.tecnolakis.com.ar" target="_blank" rel="noopener">
+    <img src="tecnolakis.jpg" alt="Logo de Tecnolakis" width="56" height="56">
+    <span>Una división de<br><strong>Grupo Tecnolakis</strong></span>
+  </a>
 </body>
 </html>

@@ -324,7 +324,7 @@
 
   <header id="top">
     <div class="wrap nav">
-      <a class="brand" href="#top" aria-label="Felizia, ir al inicio">
+      <a class="brand" href="#inicio" aria-label="Felizia, ir al inicio">
         <svg viewBox="0 0 200 140" aria-hidden="true"><path d="M22 40 A78 78 0 0 0 172 52" fill="none" stroke="#1B3A6F" stroke-width="22" stroke-linecap="round"/><circle cx="176" cy="36" r="22" fill="#FF7A50"/></svg>
         Felizia
       </a>
@@ -343,7 +343,7 @@
 
   <main>
     <!-- HERO -->
-    <section class="hero">
+    <section class="hero" id="inicio">
       <div class="wrap hero-grid">
         <div>
           <span class="eyebrow">Inteligencia artificial para PyMEs</span>
@@ -585,6 +585,13 @@
     menu.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
       menu.classList.remove("open"); toggle.setAttribute("aria-expanded", "false");
     }));
+
+    // El logo siempre vuelve al principio de la página
+    document.querySelector(".brand").addEventListener("click", e => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+      history.replaceState(null, "", location.pathname);
+    });
 
     // Borde del header al hacer scroll
     const header = document.querySelector("header");

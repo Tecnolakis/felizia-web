@@ -251,6 +251,8 @@
     }
     .cta h2 { max-width: 640px; margin: 0 auto; }
     .cta p { color: var(--muted); font-size: 1.1rem; margin: 14px auto 30px; max-width: 520px; }
+    .cta-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
+    @media (max-width: 520px) { .cta-actions .btn { width: 100%; justify-content: center; } }
 
     /* Footer */
     footer { border-top: 1px solid var(--line); padding: 36px 0; }
@@ -533,10 +535,16 @@
           <span class="eyebrow">¿Hablamos?</span>
           <h2>Contanos qué te gustaría mejorar en tu empresa</h2>
           <p>Te respondemos por WhatsApp y coordinamos una primera charla sin cargo ni compromiso.</p>
+          <div class="cta-actions">
           <a class="btn btn-primary wa-link" href="#">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.4 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 2 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.1.1.6-.1 1.3Z"/></svg>
             Escribinos por WhatsApp
           </a>
+          <a class="btn btn-primary" href="mailto:prago@felizia.com.ar?subject=Consulta%20desde%20felizia.com.ar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            Escribinos a nuestro email
+          </a>
+          </div>
         </div>
       </div>
     </section>

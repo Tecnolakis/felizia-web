@@ -6,6 +6,10 @@
   <title>Felizia · IA para PyMEs: automatización, agentes IA y consultoría</title>
   <meta name="description" content="Inteligencia artificial para PyMEs en Argentina: consultoría, automatización de procesos, chatbots y agentes IA para WhatsApp, y capacitación.">
   <link rel="canonical" href="https://www.felizia.com.ar/">
+  <link rel="alternate" hreflang="es" href="https://www.felizia.com.ar/">
+  <link rel="alternate" hreflang="en" href="https://www.felizia.com.ar/en/">
+  <link rel="alternate" hreflang="pt" href="https://www.felizia.com.ar/pt/">
+  <link rel="alternate" hreflang="x-default" href="https://www.felizia.com.ar/">
   <meta name="theme-color" content="#1B3A6F">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_AR">
@@ -34,7 +38,7 @@
         "telephone": "+54 9 3468 50-9019",
         "email": "prago@felizia.com.ar",
         "areaServed": { "@type": "Country", "name": "Argentina" },
-        "knowsLanguage": "es",
+        "knowsLanguage": ["es", "en", "pt"],
         "parentOrganization": {
           "@type": "Organization",
           "name": "Grupo Tecnolakis",
@@ -67,312 +71,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --navy: #1B3A6F;
-      --navy-dark: #122A52;
-      --orange: #FF7A50;
-      --orange-dark: #E8603A;
-      --bg: #FBFBFA;
-      --soft: #F2F5FA;
-      --muted: #5B6B85;
-      --line: #E3E8F0;
-      --radius: 18px;
-      --max: 1120px;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      background: var(--bg);
-      color: var(--navy);
-      font-family: "Nunito", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-    a { color: inherit; }
-    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
-    section { padding: 88px 0; scroll-margin-top: 72px; }
-    h2 {
-      font-size: clamp(1.7rem, 4.5vw, 2.4rem);
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      line-height: 1.2;
-    }
-    .eyebrow {
-      display: inline-block;
-      color: var(--orange-dark);
-      font-weight: 800;
-      font-size: 0.8rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: 10px;
-    }
-    .section-head { max-width: 640px; margin-bottom: 48px; }
-    .section-head p { color: var(--muted); font-size: 1.1rem; margin-top: 12px; }
-
-    /* Botones */
-    .btn {
-      display: inline-flex; align-items: center; gap: 10px;
-      padding: 14px 24px;
-      border-radius: 999px;
-      font-weight: 800;
-      font-size: 1rem;
-      text-decoration: none;
-      transition: transform .15s ease, background .15s ease, box-shadow .15s ease;
-    }
-    .btn:hover { transform: translateY(-2px); }
-    .btn-primary { background: var(--orange); color: #fff; box-shadow: 0 8px 20px rgba(255,122,80,.3); }
-    .btn-primary:hover { background: var(--orange-dark); }
-    .btn-ghost { color: var(--navy); border: 2px solid var(--line); background: #fff; }
-    .btn-ghost:hover { border-color: var(--navy); }
-    .btn svg { width: 20px; height: 20px; flex: none; }
-
-    /* Header */
-    header {
-      position: sticky; top: 0; z-index: 20;
-      background: rgba(251,251,250,.88);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid transparent;
-      transition: border-color .2s;
-    }
-    header.scrolled { border-bottom-color: var(--line); }
-    .nav { display: flex; align-items: center; justify-content: space-between; height: 72px; }
-    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 800; font-size: 1.4rem; letter-spacing: -0.02em; }
-    .brand svg { width: 44px; height: auto; }
-    .menu { display: flex; align-items: center; gap: 28px; list-style: none; }
-    .menu a { text-decoration: none; font-weight: 700; color: var(--muted); }
-    .menu a:hover { color: var(--navy); }
-    .menu .btn { padding: 10px 18px; color: #fff; }
-    .menu-toggle { display: none; background: none; border: 0; color: var(--navy); cursor: pointer; padding: 8px; }
-    .menu-toggle svg { width: 28px; height: 28px; }
-
-    /* Hero */
-    .hero { padding: 72px 0 96px; overflow: hidden; }
-    .hero-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 48px; align-items: center; }
-    .hero h1 {
-      font-size: clamp(2.3rem, 6vw, 3.8rem);
-      font-weight: 800;
-      line-height: 1.08;
-      letter-spacing: -0.03em;
-    }
-    .hero h1 em { font-style: normal; color: var(--orange); }
-    .hero p.lead { font-size: clamp(1.05rem, 2.6vw, 1.25rem); color: var(--muted); margin: 22px 0 32px; max-width: 540px; }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; }
-    .hero-note { margin-top: 26px; color: var(--muted); font-size: .95rem; }
-    .hero-note strong { color: var(--navy); }
-    .hero-art { position: relative; aspect-ratio: 1 / 1; max-width: 460px; justify-self: center; width: 100%; }
-    .hero-art .blob {
-      position: absolute; inset: 6%;
-      border-radius: 50%;
-      background: radial-gradient(circle at 30% 30%, #fff 0%, var(--soft) 55%, #E6ECF6 100%);
-    }
-    .hero-art svg.smile { position: absolute; inset: 0; width: 100%; height: 100%; }
-    .hero-art .dot { animation: bob 3s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
-    @keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-    .chip {
-      position: absolute;
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 10px 14px;
-      font-weight: 700;
-      font-size: .9rem;
-      box-shadow: 0 10px 30px rgba(27,58,111,.08);
-      display: flex; align-items: center; gap: 8px;
-      white-space: nowrap;
-    }
-    .chip i { width: 10px; height: 10px; border-radius: 50%; background: var(--orange); display: inline-block; }
-    .chip.c1 { top: 10%; left: -4%; }
-    .chip.c2 { top: 46%; right: -6%; }
-    .chip.c3 { bottom: 8%; left: 6%; }
-
-    /* Servicios */
-    .services { background: #fff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-    .card {
-      background: var(--bg);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 28px 24px;
-      transition: transform .2s ease, box-shadow .2s ease, border-color .2s;
-    }
-    .card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(27,58,111,.08); border-color: #D3DCEA; }
-    .icon {
-      width: 52px; height: 52px;
-      border-radius: 14px;
-      display: grid; place-items: center;
-      background: rgba(255,122,80,.12);
-      color: var(--orange-dark);
-      margin-bottom: 18px;
-    }
-    .icon svg { width: 26px; height: 26px; }
-    .card h3 { font-size: 1.2rem; font-weight: 800; margin-bottom: 8px; line-height: 1.3; }
-    .card p { color: var(--muted); }
-    .card ul { margin-top: 14px; padding-left: 0; list-style: none; color: var(--muted); font-size: .95rem; }
-    .card li { padding-left: 18px; position: relative; margin-top: 6px; }
-    .card li::before { content: ""; position: absolute; left: 0; top: .6em; width: 7px; height: 7px; border-radius: 50%; background: var(--orange); }
-
-    /* Proceso */
-    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; counter-reset: step; position: relative; }
-    .step { position: relative; padding-top: 64px; }
-    .step::before {
-      counter-increment: step;
-      content: counter(step);
-      position: absolute; top: 0; left: 0;
-      width: 48px; height: 48px;
-      border-radius: 50%;
-      display: grid; place-items: center;
-      background: var(--navy); color: #fff;
-      font-weight: 800; font-size: 1.2rem;
-    }
-    .step::after {
-      content: ""; position: absolute; top: 24px; left: 60px; right: -12px;
-      height: 2px;
-      background: repeating-linear-gradient(90deg, var(--line) 0 8px, transparent 8px 14px);
-    }
-    .step:last-child::after { display: none; }
-    .step h3 { font-size: 1.15rem; font-weight: 800; margin-bottom: 6px; }
-    .step p { color: var(--muted); }
-    .step .time { display: inline-block; margin-top: 10px; font-size: .85rem; font-weight: 700; color: var(--orange-dark); }
-
-    /* Por qué */
-    .why { background: var(--navy); color: #fff; }
-    .why .eyebrow { color: var(--orange); }
-    .why .section-head p { color: #C3CEE2; }
-    .why-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-    .why-item {
-      display: flex; gap: 18px;
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.12);
-      border-radius: var(--radius);
-      padding: 26px;
-    }
-    .why-item .icon { background: rgba(255,122,80,.18); color: var(--orange); flex: none; margin: 0; }
-    .why-item h3 { font-size: 1.15rem; font-weight: 800; margin-bottom: 6px; }
-    .why-item p { color: #C3CEE2; }
-
-    /* Herramientas */
-    .tool-list {
-      list-style: none;
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
-    }
-    .tool-list li {
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 18px 20px;
-      display: flex; flex-direction: column;
-    }
-    .tool-list b { font-weight: 800; font-size: 1.05rem; }
-    .tool-list span { color: var(--muted); font-size: .9rem; }
-
-    /* Preguntas frecuentes */
-    .faq { background: #fff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-    .faq-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 48px; align-items: start; }
-    .faq .section-head { margin-bottom: 0; position: sticky; top: 100px; }
-    .faq-list details {
-      border-bottom: 1px solid var(--line);
-      padding: 20px 0;
-    }
-    .faq-list details:first-child { border-top: 1px solid var(--line); }
-    .faq-list summary {
-      list-style: none;
-      cursor: pointer;
-      font-weight: 800;
-      font-size: 1.08rem;
-      display: flex; justify-content: space-between; align-items: center; gap: 16px;
-    }
-    .faq-list summary::-webkit-details-marker { display: none; }
-    .faq-list summary::after {
-      content: "+";
-      flex: none;
-      width: 30px; height: 30px; border-radius: 50%;
-      display: grid; place-items: center;
-      background: rgba(255,122,80,.12); color: var(--orange-dark);
-      font-size: 1.3rem; font-weight: 700;
-      transition: transform .2s;
-    }
-    .faq-list details[open] summary::after { transform: rotate(45deg); }
-    .faq-list details p { color: var(--muted); margin-top: 10px; max-width: 620px; }
-
-    /* CTA */
-    .cta { text-align: center; }
-    .cta-box {
-      background: linear-gradient(135deg, #FFF3EE 0%, #F2F5FA 100%);
-      border: 1px solid var(--line);
-      border-radius: 28px;
-      padding: 64px 24px;
-    }
-    .cta h2 { max-width: 640px; margin: 0 auto; }
-    .cta p { color: var(--muted); font-size: 1.1rem; margin: 14px auto 30px; max-width: 520px; }
-    .cta-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
-    @media (max-width: 520px) { .cta-actions .btn { width: 100%; justify-content: center; } }
-
-    /* Footer */
-    footer { border-top: 1px solid var(--line); padding: 36px 0; }
-    .foot { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
-    .foot small { color: var(--muted); }
-    .group { display: flex; align-items: center; gap: 10px; color: var(--muted); font-size: .9rem; text-decoration: none; }
-    .group img { width: 52px; height: 52px; mix-blend-mode: multiply; }
-    .group strong { color: var(--navy); font-weight: 800; }
-
-    /* WhatsApp flotante */
-    .wa-float {
-      position: fixed; right: 20px; bottom: 20px; z-index: 30;
-      width: 60px; height: 60px; border-radius: 50%;
-      background: #25D366; color: #fff;
-      display: grid; place-items: center;
-      box-shadow: 0 10px 24px rgba(37,211,102,.4);
-      transition: transform .15s;
-    }
-    .wa-float:hover { transform: scale(1.06); }
-    .wa-float svg { width: 32px; height: 32px; }
-
-    /* Animación al hacer scroll */
-    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
-    .reveal.in { opacity: 1; transform: none; }
-
-    /* Responsive */
-    @media (max-width: 960px) {
-      .grid-4 { grid-template-columns: repeat(2, 1fr); }
-      .steps { grid-template-columns: repeat(2, 1fr); row-gap: 40px; }
-      .tool-list { grid-template-columns: repeat(2, 1fr); }
-      .faq-grid { grid-template-columns: 1fr; gap: 32px; }
-      .faq .section-head { position: static; }
-      .step::after { display: none; }
-    }
-    @media (max-width: 760px) {
-      section { padding: 64px 0; }
-      .hero { padding: 40px 0 64px; }
-      .hero-grid { grid-template-columns: 1fr; }
-      .hero-art { max-width: 320px; order: -1; }
-      .chip { font-size: .8rem; padding: 8px 10px; }
-      .chip.c1 { left: -2%; } .chip.c2 { right: -2%; }
-      .why-grid { grid-template-columns: 1fr; }
-      .menu-toggle { display: block; }
-      .menu {
-        display: none;
-        position: absolute; top: 72px; left: 0; right: 0;
-        flex-direction: column; align-items: stretch; gap: 0;
-        background: var(--bg);
-        border-bottom: 1px solid var(--line);
-        padding: 8px 20px 20px;
-      }
-      .menu.open { display: flex; }
-      .menu li a:not(.btn) { display: block; padding: 14px 0; border-bottom: 1px solid var(--line); }
-      .menu .btn { margin-top: 16px; justify-content: center; }
-    }
-    @media (max-width: 520px) {
-      .grid-4, .steps { grid-template-columns: 1fr; }
-      .hero-actions .btn { width: 100%; justify-content: center; }
-      .foot { flex-direction: column; text-align: center; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      .hero-art .dot { animation: none; }
-      .reveal { opacity: 1; transform: none; transition: none; }
-    }
-  </style>
+  <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
 
@@ -390,6 +89,14 @@
         <li><a href="#como-trabajamos">Cómo trabajamos</a></li>
         <li><a href="#por-que">Por qué Felizia</a></li>
         <li><a href="#preguntas">Preguntas</a></li>
+        <li class="langs">
+          <a class="flag" href="/en/" hreflang="en" lang="en" title="English" aria-label="English version">
+            <svg viewBox="0 0 60 40" aria-hidden="true"><rect width="60" height="40" fill="#B22234"/><path d="M0 3.08h60v3.08H0zM0 9.23h60v3.08H0zM0 15.38h60v3.08H0zM0 21.54h60v3.08H0zM0 27.69h60v3.08H0zM0 33.85h60v3.08H0z" fill="#fff"/><rect width="24" height="21.54" fill="#3C3B6E"/><g fill="#fff"><circle cx="4" cy="3.5" r="1.1"/><circle cx="9.3" cy="3.5" r="1.1"/><circle cx="14.6" cy="3.5" r="1.1"/><circle cx="20" cy="3.5" r="1.1"/><circle cx="6.6" cy="8" r="1.1"/><circle cx="12" cy="8" r="1.1"/><circle cx="17.3" cy="8" r="1.1"/><circle cx="4" cy="12.5" r="1.1"/><circle cx="9.3" cy="12.5" r="1.1"/><circle cx="14.6" cy="12.5" r="1.1"/><circle cx="20" cy="12.5" r="1.1"/><circle cx="6.6" cy="17" r="1.1"/><circle cx="12" cy="17" r="1.1"/><circle cx="17.3" cy="17" r="1.1"/></g></svg>
+          </a>
+          <a class="flag" href="/pt/" hreflang="pt" lang="pt" title="Português" aria-label="Versão em português">
+            <svg viewBox="0 0 60 40" aria-hidden="true"><rect width="60" height="40" fill="#009C3B"/><path d="M30 4 56 20 30 36 4 20z" fill="#FFDF00"/><circle cx="30" cy="20" r="9" fill="#002776"/><path d="M21.3 18.2c5.5-1.3 11.6-.6 17 2.6" fill="none" stroke="#fff" stroke-width="1.6"/></svg>
+          </a>
+        </li>
         <li><a class="btn btn-primary wa-link" href="#">Hablemos</a></li>
       </ul>
     </div>
@@ -608,7 +315,7 @@
     <div class="wrap foot">
       <small>© <span id="year">2026</span> Felizia · www.felizia.com.ar</small>
       <a class="group" href="https://www.tecnolakis.com.ar" target="_blank" rel="noopener">
-        <img src="tecnolakis.jpg" alt="Logo de Tecnolakis" width="52" height="52">
+        <img src="/tecnolakis.jpg" alt="Logo de Tecnolakis" width="52" height="52">
         <span>Una división de<br><strong>Grupo Tecnolakis</strong></span>
       </a>
     </div>
@@ -618,48 +325,6 @@
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.4 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 2 1.1 1 2 1.3 2.3 1.4.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.1.1.6-.1 1.3Z"/></svg>
   </a>
 
-  <script>
-    // Número de WhatsApp: solo dígitos (54 9 + área + número)
-    const WHATSAPP = "5493468509019";
-    const MENSAJE = "Hola Felizia, me gustaría saber cómo la IA puede ayudar a mi empresa.";
-    const waUrl = "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(MENSAJE);
-    document.querySelectorAll(".wa-link").forEach(a => {
-      a.href = waUrl; a.target = "_blank"; a.rel = "noopener";
-    });
-
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    // Menú móvil
-    const toggle = document.querySelector(".menu-toggle");
-    const menu = document.getElementById("menu");
-    toggle.addEventListener("click", () => {
-      const open = menu.classList.toggle("open");
-      toggle.setAttribute("aria-expanded", open);
-    });
-    menu.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
-      menu.classList.remove("open"); toggle.setAttribute("aria-expanded", "false");
-    }));
-
-    // El logo siempre vuelve al principio de la página
-    document.querySelector(".brand").addEventListener("click", e => {
-      e.preventDefault();
-      window.scrollTo({ top: 0, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
-      history.replaceState(null, "", location.pathname);
-    });
-
-    // Borde del header al hacer scroll
-    const header = document.querySelector("header");
-    addEventListener("scroll", () => header.classList.toggle("scrolled", scrollY > 8), { passive: true });
-
-    // Aparición suave de secciones
-    if ("IntersectionObserver" in window) {
-      const io = new IntersectionObserver(entries => entries.forEach(e => {
-        if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
-      }), { threshold: 0.12 });
-      document.querySelectorAll(".reveal").forEach(el => io.observe(el));
-    } else {
-      document.querySelectorAll(".reveal").forEach(el => el.classList.add("in"));
-    }
-  </script>
+  <script src="/main.js"></script>
 </body>
 </html>
